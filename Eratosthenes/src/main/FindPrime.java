@@ -11,6 +11,7 @@
  */
 package main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import service.FindPrimeService;
 
@@ -21,6 +22,7 @@ public class FindPrime {
         // create scanner and service objects for use
         Scanner input = new Scanner(System.in);
         FindPrimeService primeService = new FindPrimeService();
+        ArrayList<Integer> primes = new ArrayList<Integer>();
 
         // Repeat functionality until user enters 0
         while(true) {
@@ -37,7 +39,8 @@ public class FindPrime {
                 if (maxNum == 0) {
                     break;
                 } else {
-                    primeService.findPrimes(maxNum);
+                    primes = primeService.findPrimes(primes, maxNum);
+                    primeService.printPrimes(primes);
                 }
 
             } catch (Throwable e) {

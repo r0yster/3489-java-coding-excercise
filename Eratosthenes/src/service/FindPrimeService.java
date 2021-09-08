@@ -1,10 +1,11 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FindPrimeService {
 
-    public void findPrimes(int maxNum) {
+    public ArrayList<Integer> findPrimes(ArrayList<Integer> primes, int maxNum) {
         // Create boolean array and initialize all entries as True
         boolean[] isPrime = new boolean[maxNum];
         Arrays.fill(isPrime, true);
@@ -18,11 +19,19 @@ public class FindPrimeService {
             }
         }
 
-        // Print all prime numbers to console
+        // Add all prime numbers to primes ArrayList
         for (int i = 2; i < isPrime.length; i++) {
             if (isPrime[i]) {
-                System.out.print(i + " ");
+                primes.add(i);
             }
+        }
+
+        return primes;
+    }
+
+    public void printPrimes(ArrayList primes) {
+        for (int i = 0; i < primes.size(); i++) {
+            System.out.print(primes.get(i) + " ");
         }
     }
 }
